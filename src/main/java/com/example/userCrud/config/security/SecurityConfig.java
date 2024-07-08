@@ -31,8 +31,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception{
         httpSecurity
+                .csrf().disable()
                 .authorizeHttpRequests((auth)->auth
-                        .requestMatchers("/","/test").permitAll()
+                        .requestMatchers("/","/api/v1/auth/**").permitAll()
                         .anyRequest().authenticated())  //End of Authorization http request / Object.
                 .sessionManagement(sessionManager->
                         sessionManager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

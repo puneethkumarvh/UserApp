@@ -1,9 +1,7 @@
 package com.example.userCrud.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +9,7 @@ import java.time.LocalDateTime;
 @Table(name="users")
 public class User {
     @Id
-    private int id;
+    private int user_id;
     private String email;
     private String password;
     private String first_name;
@@ -30,11 +28,11 @@ public class User {
     }
 
     public int getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getPassword() {
